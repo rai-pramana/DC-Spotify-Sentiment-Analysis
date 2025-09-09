@@ -201,7 +201,7 @@ class SpotifyReviewScraper:
             logging.error(f"Error mengambil review rating {rating}: {str(e)}")
             return []
 
-    def scrape_large_dataset_by_rating(self, rating, target_count=2000, batch_size=500):
+    def scrape_large_dataset_by_rating(self, rating, target_count=3000, batch_size=500):
         """
         Mengambil dataset besar untuk rating tertentu dengan batch processing
         
@@ -379,7 +379,7 @@ def main():
     print("2. Scrape review dengan rating tertentu")
     print("3. Scrape review dalam batch besar (4000+ review)")
     print("4. Scrape review untuk analisis sentiment (balanced dataset)")
-    print("5. Scrape dataset besar 10,000 review (2000 per rating)")
+    print("5. Scrape dataset besar 15,000 review (3000 per rating)")
     
     choice = input("\nPilih opsi (1-5): ").strip()
     
@@ -427,10 +427,10 @@ def main():
                 time.sleep(1)  # Delay antar request
         
         elif choice == "5":
-            # Scrape dataset besar 10,000 review (2000 per rating)
-            print("\n📝 MENGAMBIL DATASET BESAR 10,000 REVIEW")
+            # Scrape dataset besar 15,000 review (3000 per rating)
+            print("\n📝 MENGAMBIL DATASET BESAR 15,000 REVIEW")
             print("=" * 50)
-            print("Target: 2,000 review per rating (1-5 bintang)")
+            print("Target: 3,000 review per rating (1-5 bintang)")
             print("Metode: Batch processing dengan error handling")
             print("Estimasi waktu: 5-10 menit")
             
@@ -447,13 +447,13 @@ def main():
             
             for rating in [1, 2, 3, 4, 5]:
                 print(f"\n⭐ RATING {rating} STARS")
-                print(f"🎯 Target: 2,000 review")
+                print(f"🎯 Target: 3,000 review")
                 
                 # Gunakan method batch processing yang lebih robust
                 rating_reviews = scraper.scrape_large_dataset_by_rating(
                     rating=rating, 
-                    target_count=2000, 
-                    batch_size=2000  # Ukuran batch optimal
+                    target_count=3000, 
+                    batch_size=3000  # Ukuran batch optimal
                 )
                 
                 all_reviews.extend(rating_reviews)
@@ -461,7 +461,7 @@ def main():
                 rating_stats[rating] = len(rating_reviews)
                 
                 print(f"📊 Rating {rating}: {len(rating_reviews)} review berhasil dikumpulkan")
-                print(f"� Progress total: {total_collected}/10,000 review")
+                print(f"� Progress total: {total_collected}/15,000 review")
                 
                 # Delay antar rating untuk menghindari rate limiting
                 if rating < 5:  # Tidak delay setelah rating terakhir
@@ -474,7 +474,7 @@ def main():
             for rating, count in rating_stats.items():
                 percentage = (count / total_collected) * 100 if total_collected > 0 else 0
                 print(f"   ⭐ Rating {rating}: {count:,} review ({percentage:.1f}%)")
-            print(f"📈 Total: {total_collected:,} review dari target 10,000")
+            print(f"📈 Total: {total_collected:,} review dari target 15,000")
             
             if total_collected >= 8000:  # 80% dari target
                 print("✅ Dataset berhasil dikumpulkan dengan baik!")
