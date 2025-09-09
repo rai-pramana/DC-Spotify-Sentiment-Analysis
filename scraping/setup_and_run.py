@@ -7,7 +7,6 @@ Script otomatis untuk setup dependencies dan menjalankan scraper Spotify
 import subprocess
 import sys
 import os
-import time
 
 def print_header():
     print("="*70)

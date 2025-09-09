@@ -9,9 +9,7 @@ import requests
 import json
 import pandas as pd
 import time
-import random
 import os
-from bs4 import BeautifulSoup
 from google_play_scraper import app, reviews, Sort
 from fake_useragent import UserAgent
 from datetime import datetime
