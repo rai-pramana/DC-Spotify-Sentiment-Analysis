@@ -1,0 +1,12 @@
+# Dependencies untuk Spotify Review Scraper
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+google-play-scraper>=1.2.0
+pandas>=2.0.0
+lxml>=4.9.0
+fake-useragent>=1.4.0
+
+# Optional dependencies untuk analysis
+numpy>=1.24.0
+matplotlib>=3.7.0
+seaborn>=0.12.0

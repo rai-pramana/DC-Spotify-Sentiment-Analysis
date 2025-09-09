@@ -1,0 +1,22 @@
+{
+  "total_reviews": 10000,
+  "average_rating": 3.0,
+  "rating_distribution": {
+    "1": 2000,
+    "2": 2000,
+    "3": 2000,
+    "4": 2000,
+    "5": 2000
+  },
+  "reviews_with_thumbs_up": 1035,
+  "average_thumbs_up": 3.3909,
+  "reviews_with_replies": 2582,
+  "most_recent_review": "2025-09-08 12:31:33",
+  "oldest_review": "2025-07-13 21:48:01",
+  "positive_reviews": 4000,
+  "negative_reviews": 4000,
+  "neutral_reviews": 2000,
+  "positive_percentage": 40.0,
+  "negative_percentage": 40.0,
+  "neutral_percentage": 20.0
+}
